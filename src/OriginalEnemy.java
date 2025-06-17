@@ -13,7 +13,7 @@ public class OriginalEnemy extends Enemy{
 	public void move() {
 		super.move();
 		vy+=GameWorld.stage*0.1;
-		if (y>350) {
+		if (y>300) {
 			vy-=GameWorld.stage*0.4;
 		}
 	}
