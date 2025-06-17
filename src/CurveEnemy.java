@@ -1,0 +1,17 @@
+
+public class CurveEnemy extends Enemy{
+	public CurveEnemy(double x,double y,double vx,double vy) {
+		super(x,y,vx,vy);
+	}
+	public void move() {
+		super.move();
+		if (x<GameWorld.player.x) {
+			//自分がプレイヤーより左にいたら右に移動する
+			x++;
+		}
+		if (x>GameWorld.player.x) {
+			//自分がプレイヤーより右にいたら左に移動する
+			x--;
+		}
+	}
+}
