@@ -8,6 +8,7 @@ public class OriginalEnemy extends Enemy{
 	}
 	public OriginalEnemy(double x,double y,double vx,double vy) {
 		super(x,y,vx,vy);
+		life=3;
 	}
 	public void move() {
 		super.move();
