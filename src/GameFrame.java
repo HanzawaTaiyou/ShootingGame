@@ -42,7 +42,7 @@ public class GameFrame extends MyFrame{
 	public void checkPlayerAndEnemies() {
 		for (int i=0; i<GameWorld.enemies.size(); i++) {
 			Enemy e=GameWorld.enemies.get(i);
-			if (Math.abs(e.x-GameWorld.player.x)<=30 && Math.abs(e.y-GameWorld.player.y)<=30) {
+			if (checkHit(GameWorld.player,e)) {
 				System.out.println("やられた！");
 				GameWorld.player.y=-1000;
 			}
@@ -59,7 +59,7 @@ public class GameFrame extends MyFrame{
 				//敵1つ１つについて、変数eに入れて繰り返し実行する
 				Enemy e=GameWorld.enemies.get(j);
 				//敵eとプレイヤー弾が衝突していたら「あたり」と表示
-				if (Math.abs(e.x-b.x)<=30 && Math.abs(e.y-b.y)<=30) {
+				if (checkHit(e,b)) {
 					System.out.println("あたり");
 					hits++;
 					GameWorld.enemies.remove(j);
@@ -74,6 +74,14 @@ public class GameFrame extends MyFrame{
 			else {
 				i++;
 			}
+		}
+	}
+	public boolean checkHit(Character a,Character b) {
+		if (Math.abs(a.x-b.x)<=30 && Math.abs(a.y-b.y)<=30) {
+			return true;
+		}
+		else {
+			return false;
 		}
 	}
 }
