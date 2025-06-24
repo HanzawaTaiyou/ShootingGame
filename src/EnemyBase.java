@@ -24,6 +24,9 @@ public class EnemyBase extends Enemy{
 		if (Math.random()<0.05) {
 			GameWorld.enemies.add(new OriginalEnemy(x,y,0,GameWorld.stage));
 		}
+		if (Math.random()<0.03) {
+			GameWorld.enemies.add(new SideEnemy(x,y,0,GameWorld.stage));
+		}
 	}
 	public void draw(MyFrame f) {
 		f.setColor(0,128,0);

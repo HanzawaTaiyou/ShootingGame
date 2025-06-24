@@ -7,4 +7,5 @@ public class GameWorld {
 	static boolean enterPressed;
 	static int stage;
 	static int score;
+	static int Bullet;
 }

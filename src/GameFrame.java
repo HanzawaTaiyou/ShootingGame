@@ -6,6 +6,7 @@ public class GameFrame extends MyFrame{
 		addKeyListener(GameWorld.player); //イベントリスナー登録
 		GameWorld.stage=1;
 		GameWorld.score=0;
+		GameWorld.Bullet=21;
 		while (true) {
 			GameWorld.player.x=100;
 			GameWorld.player.y=300;
@@ -17,6 +18,10 @@ public class GameFrame extends MyFrame{
 				clear();
 				drawString("Stage = " +GameWorld.stage,300,50,15);
 				drawString("Score = " +GameWorld.score,300,80,15);
+				drawString(""+GameWorld.Bullet,30,50,15);
+				setColor(200,10,10);
+				fillRect(20,40,2,10);
+				fillRect(24,40,2,10);
 				GameWorld.player.draw(this);
 				GameWorld.player.move();
 				movePlayerBullets();
@@ -50,8 +55,9 @@ public class GameFrame extends MyFrame{
 			PlayerBullet b=GameWorld.playerBullets.get(i);
 			b.draw(this);;
 			b.move();
-			if (b.y<0) {
+			if (b.y<0 || b.x<0 || b.x>400) {
 				GameWorld.playerBullets.remove(i);
+				GameWorld.Bullet = 21 - GameWorld.playerBullets.size();
 			}
 			else {
 				i++;
@@ -110,6 +116,7 @@ public class GameFrame extends MyFrame{
 			}
 			if (hits>0) {
 				GameWorld.playerBullets.remove(i);
+				GameWorld.Bullet = 21 - GameWorld.playerBullets.size();
 			}
 			else {
 				i++;
